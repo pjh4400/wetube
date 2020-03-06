@@ -1,6 +1,10 @@
+import "./db";
 import app from "./app";
+import dotenv from "dotenv";
+dotenv.config();
+import "./models/Video"; //데이터베이스가 video.js 파일을 인식하도록 import
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const handleListening = () =>
   console.log(`✅ Listening on: http://localhost:${PORT}`);

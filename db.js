@@ -1,40 +1,21 @@
-export const videos = [ //객체 배열
-  {
-    id: 21324,
-    title: "Video awesome",
-    description: 'This is something I love',
-    views:24,
-    videoFile:"https://youtu.be/embed/lBMSZZKR1jI",
-    creator:{
-      id:23434,
-      name: "Jaehee",
-      email: "vito822#@naver.com"
-    }
-  },
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
+mongoose.connect(
+  process.env.MONGO_URL,
   {
-    id:32138,
-    title: 'Cafe ullala',
-    description: 'This is something I love',
-    views:24,
-    videoFile:"https://youtu.be/embed/lBMSZZKR1jI",
-    creator:{
-      id:23443,
-      name: "Jaehee",
-      email: "vito822#@naver.com"
-    }
-  },
-
-  {
-    id:21234,
-    title: 'Video eeeeee',
-    description: 'This is something I love',
-    views:24,
-    videoFile:"https://youtu.be/embed/lBMSZZKR1jI",
-    creator:{
-      id:23344,
-      name: "Jaehee",
-      email: "vito822#@naver.com"
-    }
+    useNewUrlParser: true,
+    useFindAndModify: false
+      //내가 MongoDB를 사용할 떄마다,
+      //이 Configuration 을 추가(true)하거나, 사용안함(false)으로 하라는 뜻
   }
-];
+);
+
+const db = mongoose.connection; //mongoDb와의 연결
+const handleOpen = () => console.log("♬ Connected to DB");
+const handleError = error => console.log("× Error on DB Connection:${error}");
+
+db.once("open",handleOpen);
+//한번 실행하는 함수. connection을 열고, 성공여부를 확인 할 수 있는 함수(handleOpen)을 실행
+db.on("error",handleError);
