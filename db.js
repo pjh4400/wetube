@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 mongoose.connect(
-  process.env.MONGO_URL,
+  process.env.MONGO_URL, //process.env로 이 url에서 db를 가져옴.
   {
     useNewUrlParser: true,
     useFindAndModify: false

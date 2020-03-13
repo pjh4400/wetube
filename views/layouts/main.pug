@@ -3,6 +3,7 @@ html
   head
       <script src="https://kit.fontawesome.com/c8a1c4c52f.js" crossorigin="anonymous"></script>
       title #{pageTitle} | #{siteName}
+      link(rel="stylesheet", href="/static/style.css")
       
   body
     header
@@ -10,3 +11,4 @@ html
     main
       block content
     include ../partials/footer
+    script(src="/static/main.js")

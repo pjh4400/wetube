@@ -19,6 +19,8 @@ const handleProfile = (req,res) => res.send("You are on my profile");
 app.use(helmet());
 app.set('view engine',"pug");
 app.use("/uploads",express.static("uploads"));
+app.use("/static",express.static("static"));
+
 app.use(cookieParser());//app.use(cookieParser);//서버가 받은 유저 COOKIE를 이해
 app.use(bodyParser.json());// 유저로부터 json 형태로 받음
 app.use(bodyParser.urlencoded({extended: true}));//유저로부터 form형태로 받음
