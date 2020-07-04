@@ -10,10 +10,10 @@ const OUTPUT_DIR = path.join(__dirname,"static");
 const config = {
   entry: ENTRY_FILE,
   mode: MODE.replace(/\s/g,""),
-  module: {
+  module: { // webpack 이 module 을 만났을 때 줄 rule들을 설정
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(js)$/,  // 정규식
         use: [
           {
             loader:'babel-loader'
