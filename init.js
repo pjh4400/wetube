@@ -1,8 +1,15 @@
 import "./db";
+import "./passport"
 import app from "./app";
 import dotenv from "dotenv";
+
+
 dotenv.config();
+
 import "./models/Video"; //데이터베이스가 video.js 파일을 인식하도록 import
+import "./models/User";
+import "./models/Comment";
+
 
 const PORT = process.env.PORT || 4000;
 
